@@ -12,7 +12,7 @@ apt-get -y install curl && curl  https://raw.githubusercontent.com/ulas/squid-ku
 ```
 #### Squid için açılan port : 8080
 
-## Squid Kullanıcı ekleme:
+### Squid Kullanıcı ekleme:
 #### /usr/bin/htpasswd -b -c /etc/squid/passwd KullaniciAdi ParoLA
-## Squid Parola güncelleme:
+### Squid Parola güncelleme:
 #### /usr/bin/htpasswd /etc/squid/passwd KullaniciAdi
