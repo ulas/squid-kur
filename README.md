@@ -9,5 +9,5 @@ apt-get -y install curl && curl  https://raw.githubusercontent.com/ulas/squid-ku
 =========
 ## Squid Kullanıcı ekleme:
 ### /usr/bin/htpasswd -b -c /etc/squid/passwd KullaniciAdi ParoLA
-## Squid Kullanıcı parola güncelleme:
+## Squid Parola güncelleme:
 ### /usr/bin/htpasswd /etc/squid/passwd KullaniciAdi
