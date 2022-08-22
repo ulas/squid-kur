@@ -89,6 +89,19 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "buster"; then
     /sbin/iptables-save
     systemctl enable squid
     systemctl restart squid
+elif cat /etc/os-release | grep PRETTY_NAME | grep "bullseye"; then
+    # OS = Debian 11
+    /bin/rm -rf /etc/squid
+    /usr/bin/apt update
+    /usr/bin/apt -y install apache2-utils squid
+    touch /etc/squid/passwd
+    /bin/rm -f /etc/squid/squid.conf
+    /usr/bin/touch /etc/squid/blacklist.acl
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/ulas/squid-kur/master/squid.conf
+    /sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
+    /sbin/iptables-save
+    systemctl enable squid
+    systemctl restart squid
 else
     echo "Bu işletim sistemi desteklenmiyor.\n"
     echo "Şimdilik sadece ubuntu ve debian desteği var."
