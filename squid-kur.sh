@@ -91,11 +91,11 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "buster"; then
     systemctl restart squid
 elif cat /etc/os-release | grep PRETTY_NAME | grep "bullseye"; then
     # OS = Debian 11
-    /bin/rm -rf /etc/squid
+    /usr/bin/rm -rf /etc/squid
     /usr/bin/apt update
     /usr/bin/apt -y install apache2-utils squid
     touch /etc/squid/passwd
-    /bin/rm -f /etc/squid/squid.conf
+    /usr/bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
     /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/ulas/squid-kur/master/squid.conf
     /usr/sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
