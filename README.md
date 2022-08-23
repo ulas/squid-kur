@@ -7,6 +7,7 @@
  Debian 8
  Debian 9
  Debian 10
+ Debian 11
 ## Kurulum:
 ```
 apt-get -y install curl && curl  https://raw.githubusercontent.com/ulas/squid-kur/master/squid-kur.sh -o squid-kur.sh && chmod +x squid-kur.sh && ./squid-kur.sh
