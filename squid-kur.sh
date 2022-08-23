@@ -98,8 +98,8 @@ elif cat /etc/os-release | grep PRETTY_NAME | grep "bullseye"; then
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
     /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/ulas/squid-kur/master/squid.conf
-    /sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
-    /sbin/iptables-save
+    /sbin/nftables -I INPUT -p tcp --dport 8080 -j ACCEPT
+    /sbin/nftables-save
     systemctl enable squid
     systemctl restart squid
 else
