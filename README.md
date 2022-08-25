@@ -10,7 +10,7 @@
  Debian 11
 ## Kurulum:
 ```
-apt-get -y install curl iptables && curl  https://raw.githubusercontent.com/ulas/squid-kur/master/squid-kur.sh -o squid-kur.sh && chmod +x squid-kur.sh && ./squid-kur.sh
+apt-get -y install curl ufw && curl  https://raw.githubusercontent.com/ulas/squid-kur/master/squid-kur.sh -o squid-kur.sh && chmod +x squid-kur.sh && ./squid-kur.sh
 ```
 ##### Squid için açılan port : 8080
 
