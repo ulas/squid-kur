@@ -3,7 +3,18 @@
 # Squid kurulum betiği
 # 
 # 
-if cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 20.04"; then
+if cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 22.04"; then
+    /usr/bin/apt update && apt upgrade -y
+    /usr/bin/apt -y install apache2-utils squid
+    touch /etc/squid/passwd
+    /bin/rm -f /etc/squid/squid.conf
+    /usr/bin/touch /etc/squid/blacklist.acl
+    /usr/bin/wget --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/ulas/squid-kur/master/squid.conf
+    /sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
+    /sbin/iptables-save
+    service squid restart
+    systemctl enable squid
+elif cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 20.04"; then
     /usr/bin/apt update && apt upgrade -y
     /usr/bin/apt -y install apache2-utils squid
     touch /etc/squid/passwd
