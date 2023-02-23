@@ -3,7 +3,7 @@
 # Squid kurulum betiği
 # 
 # 
-if cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 22.04"; then
+if cat /etc/os-release | grep PRETTY_NAME | grep "Ubuntu 22.04.2"; then
     /usr/bin/apt update && apt upgrade -y
     /usr/bin/apt -y install apache2-utils squid
     touch /etc/squid/passwd
